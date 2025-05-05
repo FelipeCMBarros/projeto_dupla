@@ -8,11 +8,12 @@ def rolar_dados(dados):
     i+=1
   return lista_dados
 
-def guardar_dado(dados_rolados, dados_guardados, i):
-  if len(dados_guardados) < 4:
-    dados_guardados.append(dados_rolados[i])
-    dados_rolados.remove(dados_rolados[i])
+def guardar_dado(dados_rolados, dados_no_estoque, dado_para_guardar):
+  for dado_para_guardar in dados_rolados:
+    if len(dados_no_estoque) < 4:
+      dados_no_estoque.append(dados_rolados[dado_para_guardar])
+      dados_rolados.remove(dados_rolados[dado_para_guardar])
 
-  lista = [dados_rolados, dados_guardados]
+  lista = [dados_rolados, dados_no_estoque]
   return lista
 
