@@ -136,3 +136,33 @@ def calcula_pontos_regra_avancada(dados): #Exercício 11
         'sequencia_baixa': calcula_pontos_sequencia_baixa(dados)
     }
 
+def faz_jogada(dados, categoria, cartela_de_pontos): #Exercício 12
+    # Calcula os pontos
+    pontos_simples = calcula_pontos_regra_simples(dados)
+    pontos_avancados = calcula_pontos_regra_avancada(dados)
+
+    # Verifica se a categoria é simples (ex: "1", "2", ..., "6")
+    if categoria.isdigit():
+        numero = int(categoria)
+        cartela_de_pontos['regra_simples'][numero] = pontos_simples[numero]
+    else:
+        cartela_de_pontos['regra_avancada'][categoria] = pontos_avancados[categoria]
+
+    return cartela_de_pontos
+
+def imprime_cartela(cartela): #Exercício 13
+    print("Cartela de Pontos:")
+    print("-"*25)    
+    for i in range(1, 7):
+        filler = " " * (15 - len(str(i)))
+        if cartela['regra_simples'][i] != -1:
+            print(f"| {i}: {filler}| {cartela['regra_simples'][i]:02} |")
+        else:
+            print(f"| {i}: {filler}|    |")
+    for i in cartela['regra_avancada'].keys():
+        filler = " " * (15 - len(str(i)))
+        if cartela['regra_avancada'][i] != -1:
+            print(f"| {i}: {filler}| {cartela['regra_avancada'][i]:02} |")
+        else:
+            print(f"| {i}: {filler}|    |")
+    print("-"*25)
