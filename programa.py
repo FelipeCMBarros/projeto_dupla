@@ -1,4 +1,11 @@
 # Aqui será feito o programa do jogo
+# VERSÃO FINAL
+# Tá quebrado msas eu genuinamente to enlouquecendo tentando achar o problema
+# Toda vez que eu rodo sozinho funciona
+# Culpo o Praire learn
+# São 23:32 e eu to aqui a tipo 6 hrs
+# Desisto mesmo que seja B (Pelo menos conseguimos fazer todas as funções)
+
 from funcoes import *
 
 cartela = {
@@ -15,7 +22,8 @@ cartela = {
 
 rodadas = 0
 
-while rodadas < 12:
+while rodadas < 11:
+    imprime_cartela(cartela)
     dados_rolados = rolar_dados(5)
     dados_guardados = []
     rerrolagens = 0
